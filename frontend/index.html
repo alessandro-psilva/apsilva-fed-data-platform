@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/svg+xml" href="./assets/pig-favicon.svg?v=20260418a" />
+    <link rel="shortcut icon" href="./assets/pig-favicon.svg?v=20260418a" />
     <link rel="stylesheet" href="./assets/styles.css?v=20260417o" />
   </head>
   <body>
@@ -30,6 +32,8 @@
         </div>
 
         <button id="menu-jobs" class="menu-item active" type="button">Jobs & Pipelines</button>
+        <button id="menu-data-entry" class="menu-item" type="button">Data Ingestion</button>
+        <button id="menu-metrics" class="menu-item" type="button">Metrics</button>
       </aside>
 
       <main class="workspace">
@@ -38,6 +42,7 @@
         </header>
 
         <section class="content">
+          <div id="jobs-view" class="view-pane is-active">
           <div class="jobs-table-wrap">
             <table class="jobs-table">
               <thead>
@@ -56,6 +61,74 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+          </div>
+
+          <div id="data-entry-view" class="view-pane">
+            <div class="data-entry-card">
+              <div class="jobs-table-wrap">
+                <table class="jobs-table volumes-table">
+                  <thead>
+                    <tr>
+                      <th class="name-col">Name</th>
+                      <th class="type-col">Type</th>
+                      <th>Volume Path</th>
+                      <th class="status-col">Upload Status</th>
+                      <th class="actions-col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="volumes-tbody">
+                    <tr>
+                      <td colspan="5" class="loading-row">Carregando volumes...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <input id="volume-upload-input" type="file" hidden />
+            </div>
+          </div>
+
+          <div id="metrics-view" class="view-pane">
+            <div class="metrics-grid">
+              <article class="metric-card">
+                <span class="metric-label">Backend API</span>
+                <strong id="metric-api-status" class="metric-value">-</strong>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Jobs Disponiveis</span>
+                <strong id="metric-jobs-count" class="metric-value">-</strong>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Volumes Raw</span>
+                <strong id="metric-volumes-count" class="metric-value">-</strong>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Upload Success Rate</span>
+                <strong id="metric-upload-rate" class="metric-value">-</strong>
+              </article>
+            </div>
+
+            <div class="data-entry-card">
+              <div class="jobs-table-wrap">
+                <table class="jobs-table metrics-table">
+                  <thead>
+                    <tr>
+                      <th>When</th>
+                      <th>Source</th>
+                      <th>Action</th>
+                      <th>Status</th>
+                      <th>Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody id="metrics-history-tbody">
+                    <tr>
+                      <td colspan="5" class="loading-row">Carregando metricas...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </section>
       </main>
