@@ -1,0 +1,276 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 6px 8px;
+  font-weight: 700;
+  color: #073b27;
+  font-size: 13px;
+}
+
+.pig-logo {
+  width: 26.4px;
+  height: 26.4px;
+  color: #0a4f34;
+}
+
+.menu-item {
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  padding: 7px 9px;
+  color: #2a3240;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.menu-item.active {
+  background: #bfdcc9;
+  color: #0a4f34;
+  font-weight: 600;
+}
+
+.search-box {
+  border: 1px solid #c9ddd0;
+  background: #f8fcf9;
+  color: #6f8578;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 7px 10px;
+  width: min(560px, 100%);
+}
+
+.btn-secondary {
+  border: 1px solid #c3d7ca;
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: #fff;
+  color: #1d4f36;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.data-entry-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  padding: 14px;
+}
+
+.data-entry-card h2 {
+  margin: 0 0 6px;
+  color: #134a31;
+  font-size: 20px;
+}
+
+.data-entry-subtitle {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.metric-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.metric-value {
+  font-size: 20px;
+  color: #0d5f3f;
+  line-height: 1.1;
+}
+
+.params-inline {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+}
+
+.params-open-btn {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #b7d1c1;
+  border-radius: 50%;
+  background: #f5fbf7;
+  color: #0a4f34;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.params-open-btn:hover {
+  background: #eaf6ef;
+}
+
+.params-status {
+  font-size: 11px;
+  color: #8aa596;
+  text-transform: lowercase;
+}
+
+.params-status.ok {
+  color: #0c7a34;
+}
+
+.params-status.error {
+  color: #b42318;
+}
+
+.params-input {
+  width: 100%;
+  min-height: 62px;
+  resize: vertical;
+  border: 1px solid #c3d7ca;
+  border-radius: 6px;
+  background: #fbfefc;
+  color: #1f4a35;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+  line-height: 1.35;
+  padding: 6px 8px;
+}
+
+.params-input:focus {
+  border-color: #0a4f34;
+  outline: none;
+}
+
+.params-input.is-invalid {
+  border-color: #b42318;
+  background: #fff7f6;
+}
+
+.params-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.params-btn {
+  border: 1px solid #c3d7ca;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1d4f36;
+  font-size: 11px;
+  line-height: 1;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.params-btn:hover {
+  border-color: #9ec2ad;
+  background: #f5fbf7;
+}
+
+.params-hint {
+  font-size: 11px;
+  color: #8aa596;
+  min-height: 14px;
+}
+
+.params-hint.ok {
+  color: #0c7a34;
+}
+
+.params-hint.error {
+  color: #b42318;
+}
+
+.params-none {
+  color: #8aa596;
+}
+
+.run-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #0d5f3f;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.run-link:hover {
+  color: #073b27;
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.status-success {
+  color: #0c7a34;
+}
+
+.status-error {
+  color: #b42318;
+}
+
+.status-idle {
+  color: #8aa596;
+}
+
+.status-running {
+  color: #0a4f34;
+}
+
+.play-btn {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+  cursor: pointer;
+  color: #0a4f34;
+  font-size: 12px;
+  line-height: 1;
+  box-shadow: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.play-btn:hover {
+  color: #073b27;
+}
+
+.play-btn:focus,
+.play-btn:focus-visible,
+.play-btn:active {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  outline: none;
+}

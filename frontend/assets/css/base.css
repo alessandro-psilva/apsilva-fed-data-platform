@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #134a31;
+}
+
+.loading-row {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+}

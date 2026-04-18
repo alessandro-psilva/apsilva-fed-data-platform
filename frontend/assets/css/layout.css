@@ -1,0 +1,38 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  border-right: 1px solid var(--line);
+  background: var(--sidebar);
+  padding: 12px 9px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-rows: 44px 1fr;
+}
+
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  gap: 12px;
+}
+
+.content {
+  padding: 14px 14px;
+}
+
+.view-pane {
+  display: none;
+}
+
+.view-pane.is-active {
+  display: block;
+}

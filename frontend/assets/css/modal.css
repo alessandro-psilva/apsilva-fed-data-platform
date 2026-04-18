@@ -1,0 +1,93 @@
+.params-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 59, 39, 0.34);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.params-modal.is-open {
+  display: flex;
+}
+
+.params-modal-card {
+  width: min(720px, 100%);
+  background: #ffffff;
+  border: 1px solid #c8ddcf;
+  border-radius: 10px;
+  box-shadow: 0 14px 30px rgba(7, 59, 39, 0.18);
+  padding: 12px;
+}
+
+.params-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.params-modal-head h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #12422e;
+}
+
+.params-modal-close {
+  border: 1px solid #c3d7ca;
+  border-radius: 6px;
+  background: #fff;
+  color: #2a4f3d;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.params-modal-input {
+  width: 100%;
+  min-height: 250px;
+  resize: vertical;
+  border: 1px solid #c3d7ca;
+  border-radius: 8px;
+  background: #fbfefc;
+  color: #1f4a35;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.params-modal-input:focus {
+  border-color: #0a4f34;
+  outline: none;
+}
+
+.params-modal-foot {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.params-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.params-modal-hint {
+  flex: 1;
+  font-size: 12px;
+  color: #8aa596;
+  min-height: 16px;
+}
+
+.params-modal-hint.ok {
+  color: #0c7a34;
+}
+
+.params-modal-hint.error {
+  color: #b42318;
+}

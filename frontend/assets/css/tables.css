@@ -1,0 +1,80 @@
+.jobs-table-wrap {
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1080px;
+  table-layout: fixed;
+}
+
+.jobs-table th,
+.jobs-table td {
+  border-bottom: 1px solid #eef1f4;
+  padding: 9px 10px;
+  font-size: 13px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.jobs-table th {
+  color: #466855;
+  font-weight: 600;
+  background: #f7fbf8;
+}
+
+.name-col {
+  width: 24%;
+}
+
+.type-col {
+  width: 8%;
+}
+
+.job-name {
+  color: #0d5f3f;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.run-url-col {
+  width: 16%;
+}
+
+.params-col {
+  width: 32%;
+  white-space: nowrap;
+}
+
+.params-cell {
+  min-width: 320px;
+}
+
+.status-col,
+.actions-col {
+  text-align: center;
+}
+
+.status-col {
+  width: 12%;
+  white-space: nowrap;
+}
+
+.actions-col {
+  width: 8%;
+  text-align: center;
+}
+
+.volumes-table {
+  min-width: 780px;
+}
+
+.metrics-table {
+  min-width: 920px;
+}
