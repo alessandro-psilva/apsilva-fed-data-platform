@@ -1,0 +1,40 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: apsilva-fed-data-platform-frontend
+    environment:
+      FRONTEND_API_BASE_URL: ${FRONTEND_API_BASE_URL?FRONTEND_API_BASE_URL is required in .env}
+    ports:
+      - "${FRONTEND_PORT?FRONTEND_PORT is required in .env}:80"
+    depends_on:
+      - storage
+    restart: unless-stopped
+    networks:
+      - platform-net
+
+  storage:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    container_name: apsilva-fed-data-platform-storage
+    command: >
+      azurite
+      --blobHost 0.0.0.0
+      --queueHost 0.0.0.0
+      --tableHost 0.0.0.0
+      --location /data
+      --debug /data/debug.log
+    ports:
+      - "${AZURITE_BLOB_PORT?AZURITE_BLOB_PORT is required in .env}:10000"
+      - "${AZURITE_QUEUE_PORT?AZURITE_QUEUE_PORT is required in .env}:10001"
+      - "${AZURITE_TABLE_PORT?AZURITE_TABLE_PORT is required in .env}:10002"
+    volumes:
+      - ${AZURITE_DATA_DIR?AZURITE_DATA_DIR is required in .env}:/data
+    restart: unless-stopped
+    networks:
+      - platform-net
+
+networks:
+  platform-net:
+    name: ${PLATFORM_NET_NAME?PLATFORM_NET_NAME is required in .env}
+    external: true

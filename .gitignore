@@ -1,0 +1,14 @@
+# Azurite local data
+azurite-data/
+
+# Docker/compose local overrides and env
+.env
+.env.*
+!.env.example
+docker-compose.override.yml
+
+# OS/editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles.css?v=20260417o" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <svg class="pig-logo" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="34" r="17" fill="none" stroke="currentColor" stroke-width="3" />
+            <circle cx="21" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="3" />
+            <circle cx="43" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="3" />
+            <ellipse cx="32" cy="39" rx="8" ry="6" fill="none" stroke="currentColor" stroke-width="3" />
+            <circle cx="29" cy="39" r="1.2" fill="currentColor" />
+            <circle cx="35" cy="39" r="1.2" fill="currentColor" />
+            <circle cx="26" cy="31" r="1.8" fill="currentColor" />
+            <circle cx="38" cy="31" r="1.8" fill="currentColor" />
+          </svg>
+          <span>Data Platform</span>
+        </div>
+
+        <button id="menu-jobs" class="menu-item active" type="button">Jobs & Pipelines</button>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <button id="refresh-jobs" class="btn-secondary" type="button">Refresh</button>
+        </header>
+
+        <section class="content">
+          <div class="jobs-table-wrap">
+            <table class="jobs-table">
+              <thead>
+                <tr>
+                  <th class="name-col">Name</th>
+                  <th class="type-col">Type</th>
+                  <th class="run-url-col">Run URL</th>
+                  <th class="params-col">Job Parameters</th>
+                  <th class="status-col">Trigger Status</th>
+                  <th class="actions-col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="jobs-tbody">
+                <tr>
+                  <td colspan="6" class="loading-row">Carregando jobs...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="params-modal" class="params-modal" aria-hidden="true">
+      <div class="params-modal-card" role="dialog" aria-modal="true" aria-labelledby="params-modal-title">
+        <div class="params-modal-head">
+          <h3 id="params-modal-title">Job Parameters</h3>
+          <button id="params-modal-close" type="button" class="params-modal-close" aria-label="Close">x</button>
+        </div>
+        <textarea
+          id="params-modal-input"
+          class="params-modal-input"
+          spellcheck="false"
+          title="JSON parameters"
+        ></textarea>
+        <div class="params-modal-foot">
+          <div class="params-modal-actions">
+            <button id="params-modal-check" type="button" class="params-btn">Check</button>
+            <button id="params-modal-format" type="button" class="params-btn">Format</button>
+          </div>
+          <span id="params-modal-hint" class="params-modal-hint"></span>
+          <button id="params-modal-save" type="button" class="btn-secondary">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/config.js?v=20260417o"></script>
+    <script src="./assets/app.js?v=20260417o"></script>
+  </body>
+</html>
