@@ -204,17 +204,39 @@ function buildRunPayload(jobId) {
   };
 }
 
+function renderJobsPagination() {
+  if (dom.jobsPrevPageBtn) {
+    dom.jobsPrevPageBtn.disabled = state.jobsCurrentOffset <= 0;
+  }
+
+  if (dom.jobsNextPageBtn) {
+    dom.jobsNextPageBtn.disabled = !state.jobsHasMore || state.jobsNextOffset === null;
+  }
+
+  if (dom.jobsPageInfo) {
+    dom.jobsPageInfo.textContent = `Pagina ${state.jobsPageNumber}`;
+  }
+}
+
 export async function loadJobs() {
   if (!dom.jobsTbody) return;
 
   dom.jobsTbody.innerHTML = '<tr><td colspan="6" class="loading-row">Carregando jobs...</td></tr>';
+  renderJobsPagination();
 
   try {
-    const data = await http("/databricks/jobs?limit=25&offset=0&expand_tasks=true");
+    const data = await http(
+      `/databricks/jobs?limit=${state.jobsPageLimit}&next_page_id=${state.jobsCurrentOffset}&expand_tasks=true`
+    );
     const items = Array.isArray(data.items) ? data.items : [];
+    const pagination = data?.pagination && typeof data.pagination === "object" ? data.pagination : {};
+    const nextOffsetRaw = pagination.next_page_id ?? pagination.next_offset;
+    state.jobsNextOffset = Number.isInteger(nextOffsetRaw) ? nextOffsetRaw : null;
+    state.jobsHasMore = Boolean(pagination.has_more) && state.jobsNextOffset !== null;
 
     if (items.length === 0) {
       dom.jobsTbody.innerHTML = '<tr><td colspan="6" class="loading-row">Nenhum job encontrado.</td></tr>';
+      renderJobsPagination();
       return;
     }
 
@@ -240,8 +262,12 @@ export async function loadJobs() {
         `;
       })
       .join("");
+    renderJobsPagination();
   } catch {
     dom.jobsTbody.innerHTML = '<tr><td colspan="6" class="loading-row">Erro ao carregar jobs.</td></tr>';
+    state.jobsHasMore = false;
+    state.jobsNextOffset = null;
+    renderJobsPagination();
   }
 }
 
@@ -302,6 +328,24 @@ export function bindJobsEvents() {
 
     await runJob(jobId);
   });
+
+  if (dom.jobsPrevPageBtn) {
+    dom.jobsPrevPageBtn.addEventListener("click", async () => {
+      if (state.jobsCurrentOffset <= 0) return;
+      state.jobsCurrentOffset = Math.max(0, state.jobsCurrentOffset - state.jobsPageLimit);
+      state.jobsPageNumber = Math.max(1, state.jobsPageNumber - 1);
+      await loadJobs();
+    });
+  }
+
+  if (dom.jobsNextPageBtn) {
+    dom.jobsNextPageBtn.addEventListener("click", async () => {
+      if (!state.jobsHasMore || state.jobsNextOffset === null) return;
+      state.jobsCurrentOffset = state.jobsNextOffset;
+      state.jobsPageNumber += 1;
+      await loadJobs();
+    });
+  }
 }
 
 export function bindParamsModalEvents() {

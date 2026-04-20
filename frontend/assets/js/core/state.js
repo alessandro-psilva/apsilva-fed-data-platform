@@ -1,5 +1,10 @@
 export const state = {
   activeView: "jobs",
+  jobsPageLimit: 25,
+  jobsCurrentOffset: 0,
+  jobsNextOffset: null,
+  jobsPageNumber: 1,
+  jobsHasMore: false,
   activeParamJobId: null,
   selectedVolumeForUpload: null,
   volumesCache: [],

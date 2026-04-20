@@ -53,6 +53,26 @@
   cursor: pointer;
 }
 
+.jobs-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.jobs-page-info {
+  min-width: 112px;
+  text-align: center;
+  color: #2a4f3d;
+  font-size: 12px;
+}
+
+.jobs-pagination .btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 .data-entry-card {
   border: 1px solid var(--line);
   border-radius: 10px;
